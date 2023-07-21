@@ -5,7 +5,7 @@ import javax.validation.ConstraintValidatorContext;
 
 public class PhoneNumberValidator implements ConstraintValidator<ValidPhoneNumber, String> {
 
-    private static final String PHONE_NUMBER_REGEX = "\\d{10}"; // Change regex according to your desired format
+    private static final String PHONE_NUMBER_REGEX = "\\d{10}";
 
     @Override
     public void initialize(ValidPhoneNumber constraintAnnotation) {
@@ -14,10 +14,8 @@ public class PhoneNumberValidator implements ConstraintValidator<ValidPhoneNumbe
     @Override
     public boolean isValid(String phoneNumber, ConstraintValidatorContext context) {
         if (phoneNumber == null) {
-            return true; // Null values are considered valid
+            return true;
         }
-         System.out.println("Helllo");
-        // You can add more validation logic here if needed, e.g., check for different phone number formats
         return phoneNumber.matches(PHONE_NUMBER_REGEX);
     }
 }
